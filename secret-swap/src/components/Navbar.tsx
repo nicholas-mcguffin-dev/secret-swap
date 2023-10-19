@@ -8,19 +8,19 @@ function Navbar() {
         <nav className="bg-white p-2 flex justify-between items-center">
             <div className="flex items-center">
                 <img src="gift.svg" alt="Logo" className="w-8 h-8"></img>
-                <h1 className="text-black ml-2 text-xl font-sembiold">Secret Swap </h1>
+                <h1 className=" ml-2 text-xl font-sembiold text-black">Secret Swap </h1>
             </div>
             <div className="space-x-4">
-                <ul className="flex space-x-4 text-black">
+                <ul className="flex space-x-8 text-black">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/services">Services</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/swaps">Swaps</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
             <div className="flex justify-end">
                 {isAuthenticated? (
-                    <div className="flex space-x-4 text-black">
+                    <div className="flex space-x-4 ">
                         <h2 className="mx-2 flex items-center text-black"> Welcome, {user?.given_name}.</h2>
                         <Button
                             handleClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
