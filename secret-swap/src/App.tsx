@@ -1,8 +1,9 @@
 import './App.css'
 import { useAuth0 } from "@auth0/auth0-react";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0();
+  const { isLoading, isAuthenticated, error, user } = useAuth0();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -15,21 +16,12 @@ function App() {
   if (isAuthenticated) console.log(user);
 
     return (
-      <div className="app">
-        <div className="main">
-          {isLoading ? (
-            <h3> Loading...</h3>
-          ) : (null)}
-          <h1> Auth0 React Login</h1>
-            {isAuthenticated? (
-              <button onClick={() => logout({ logoutParams: {returnTo: window.location.origin} })}>
-            Log Out
-            </button>
-            ):(
-              <button onClick={() => loginWithRedirect()}>Log In</button>
-            )}
+        <div className="flex flex-col h-screen">
+          <Navbar />
+          <div className="bg-green flex flex-grow justify-center items-center h-100 w-100">
+            <h1>This is where the content will go.</h1>
+          </div>
         </div>
-      </div>
       )
   }
 
