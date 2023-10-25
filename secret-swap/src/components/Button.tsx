@@ -16,10 +16,10 @@ const styles = {
     "primary": "bg-indigo-500 text-white",
     "secondary": "bg-white text-indigo-500 outline-indigo-500 outline outline-2",
     "tertiary": "text-indigo-500",
-    "success": "bg-success",
-    "danger": "bg-danger",
-    "warning": "bg-warning",
-    "info": "bg-info",
+    "success": "bg-green-500",
+    "danger": "bg-red-500",
+    "warning": "bg-yellow-500",
+    "info": "bg-cyan-500",
 }
 
 function Button(props: ButtonProps) {
