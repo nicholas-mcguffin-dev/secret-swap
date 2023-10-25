@@ -14,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 
 const styles = {
     "primary": "bg-indigo-500 text-white",
-    "secondary": "bg-white text-indigo-500 outline outline-2",
+    "secondary": "bg-white text-indigo-500 outline-indigo-500 outline outline-2",
     "tertiary": "text-indigo-500",
     "success": "bg-success",
     "danger": "bg-danger",
@@ -28,7 +28,7 @@ function Button(props: ButtonProps) {
     return (
         <button
             onClick={props?.handleClick}
-            className={`${style} rounded-lg py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none`}
+            className={`${style} rounded-lg py-2 px-4 font-sans text-xs font-bold uppercase shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none`}
             type={props?.type || "button"}
             disabled={props?.disabled}
         >
