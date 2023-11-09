@@ -1,7 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import  Button from "./Button";
 
-function Navbar() {
+interface NavBarProps {
+    setModal: (isModalOpen: boolean) => void;
+}
+
+function Navbar(props: NavBarProps) {
     const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
 
     return (
@@ -24,24 +28,39 @@ function Navbar() {
                         <h2 className="mx-2 flex items-center text-black"> Welcome, {user?.given_name}.</h2>
                         <Button
                             handleClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-                            styles={"border-white rounded-2xl"}
                             type={"button"}
                             title={"Log Out"}
                             disabled={false}
+                            hierarchy={"primary"}
                         >
                             Sign Out
                         </Button>
                     </div>
                 ):(
-                    <Button
-                        handleClick={() => loginWithRedirect()}
-                        styles={"border-white rounded-2xl "}
-                        type={"button"}
-                        title={"Log In"}
-                        disabled={false}
-                    >
-                        Sign In
-                    </Button>
+                    <>
+                        <div className="mx-2">
+                            <Button
+                                handleClick={() => loginWithRedirect()}
+                                type={"button"}
+                                hierarchy={"primary"}
+                                title={"Sign In"}
+                                disabled={false}
+                            >
+                                Sign In
+                            </Button>
+                        </div>
+                        <div className="mx-2">
+                            <Button
+                                handleClick={() => props.setModal(true)}
+                                hierarchy={"secondary"}
+                                type={"button"}
+                                title={"Sign Up"}
+                                disabled={false}
+                            >
+                                Sign Up
+                            </Button>`
+                        </div>
+                    </>
                 )}
             </div>
         </nav>

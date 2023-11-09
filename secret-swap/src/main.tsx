@@ -4,7 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { Auth0Provider } from '@auth0/auth0-react';
 import { BrowserRouter } from 'react-router-dom'
-console.log(window.location.origin);
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Auth0Provider
